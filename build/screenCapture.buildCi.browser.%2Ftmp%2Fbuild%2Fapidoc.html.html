@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/philbooth/check-types.js"
-
-    >check-types (v7.1.5)</a>
+    <a href="https://github.com/philbooth/check-types.js">check-types (v7.1.5)</a>
 </h1>
 <h4>A little library for asserting types and values.</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.check-types">module check-types</a><ol>
 
@@ -7875,7 +7868,7 @@ if `thing` is an empty array,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function arrayLike(data) {
-  return assigned(data) &#x26;&#x26; number(data.length);
+  return assigned(data) &amp;&amp; number(data.length);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 `false` otherwise.
@@ -7907,7 +7900,7 @@ if `thing` implements the iterable protocol,
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function assertImpl(value, message, ErrorType) {
   if (value === false) {
-    throw new (ErrorType || Error)(message || &#x27;Assertion failed&#x27;);
+    throw new (ErrorType || Error)(message || 'Assertion failed');
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -7916,7 +7909,7 @@ except it operates on iterables.
 * `check.object.of.xxx(thing)`:
 The `object.of` modifier
 is synonymous with `array.of`,
-except it operates on an object&#x27;s properties.
+except it operates on an object's properties.
 
 * `check.<span class="apidocCodeKeywordSpan">assert</span>(value, message, ErrorType)`:
 Throws a `TypeError`
@@ -8324,13 +8317,13 @@ check.maybe.even(null);
 ```
 
 ```javascript
-check.<span class="apidocCodeKeywordSpan">assert.like</span>({ foo: &#x27;bar&#x27; }, { baz: &#x27;qux&#x27; });
-// Throws `new TypeError(&#x27;Invalid type&#x27;)`
+check.<span class="apidocCodeKeywordSpan">assert.like</span>({ foo: 'bar' }, { baz: 'qux' });
+// Throws `new TypeError('Invalid type')`
 ```
 
 ```javascript
-check.assert.not.like({ foo: &#x27;bar&#x27; }, { baz: &#x27;qux&#x27; });
-// Doesn&#x27;t throw
+check.assert.not.like({ foo: 'bar' }, { baz: 'qux' });
+// Doesn't throw
 ```
 ...</pre></li>
     </ul>
@@ -8540,7 +8533,7 @@ check.assert.not.like({ foo: &#x27;bar&#x27; }, { baz: &#x27;qux&#x27; });
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function assigned(data) {
-  return ! isUndefined(data) &#x26;&#x26; ! isNull(data);
+  return ! isUndefined(data) &amp;&amp; ! isNull(data);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 `false` otherwise.
@@ -8571,11 +8564,11 @@ Returns `true`
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function between(data, x, y) {
-  if (x &#x3c; y) {
-    return greater(data, x) &#x26;&#x26; less(data, y);
+  if (x &lt; y) {
+    return greater(data, x) &amp;&amp; less(data, y);
   }
 
-  return less(data, x) &#x26;&#x26; greater(data, y);
+  return less(data, x) &amp;&amp; greater(data, y);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 `false` otherwise.
@@ -8591,7 +8584,7 @@ between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -8637,7 +8630,7 @@ which is greater.
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function contains(data, substring) {
-  return string(data) &#x26;&#x26; data.indexOf(substring) !== -1;
+  return string(data) &amp;&amp; data.indexOf(substring) !== -1;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 `false` otherwise.
@@ -8669,7 +8662,7 @@ Returns `true`
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function date(data) {
   try {
-    return instance(data, Date) &#x26;&#x26; integer(data.getTime());
+    return instance(data, Date) &amp;&amp; integer(data.getTime());
   } catch (error) {
     return false;
   }
@@ -8703,7 +8696,7 @@ Returns `true`
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function emptyArray(data) {
-  return array(data) &#x26;&#x26; data.length === 0;
+  return array(data) &amp;&amp; data.length === 0;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 #### Array predicates
@@ -8734,7 +8727,7 @@ if `thing` is a non-empty array,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function emptyObject(data) {
-  return object(data) &#x26;&#x26; Object.keys(data).length === 0;
+  return object(data) &amp;&amp; Object.keys(data).length === 0;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 #### Object predicates
@@ -8765,7 +8758,7 @@ if `thing` is a non-empty object,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function emptyString(data) {
-  return data === &#x27;&#x27;;
+  return data === '';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 #### String predicates
@@ -8827,7 +8820,7 @@ if `thing` is `null`,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function even(data) {
-  return number(data) &#x26;&#x26; data % 2 === 0;
+  return number(data) &amp;&amp; data % 2 === 0;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   `false` otherwise.
@@ -8858,7 +8851,7 @@ if `thing` is `null`,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function isFunction(data) {
-  return typeof data === &#x27;function&#x27;;
+  return typeof data === 'function';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 * `check.date(thing)`:
@@ -8889,7 +8882,7 @@ if `thing` is `null`,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function greater(lhs, rhs) {
-  return number(lhs) &#x26;&#x26; lhs &#x3e; rhs;
+  return number(lhs) &amp;&amp; lhs &gt; rhs;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 `false` otherwise.
@@ -8920,7 +8913,7 @@ greater than or equal to `value`,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function greaterOrEqual(lhs, rhs) {
-  return number(lhs) &#x26;&#x26; lhs &#x3e;= rhs;
+  return number(lhs) &amp;&amp; lhs &gt;= rhs;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 `false` otherwise.
@@ -8951,7 +8944,7 @@ less than `value`,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function hasLength(data, length) {
-  return assigned(data) &#x26;&#x26; data.length === length;
+  return assigned(data) &amp;&amp; data.length === length;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
@@ -8981,18 +8974,18 @@ less than `value`,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function inRange(data, x, y) {
-  if (x &#x3c; y) {
-    return greaterOrEqual(data, x) &#x26;&#x26; lessOrEqual(data, y);
+  if (x &lt; y) {
+    return greaterOrEqual(data, x) &amp;&amp; lessOrEqual(data, y);
   }
 
-  return lessOrEqual(data, x) &#x26;&#x26; greaterOrEqual(data, y);
+  return lessOrEqual(data, x) &amp;&amp; greaterOrEqual(data, y);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">inRange</span>(thing, a, b)`:
@@ -9001,7 +8994,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -9023,7 +9016,7 @@ which is greater.
   }
 
   try {
-    if (typeof Symbol !== &#x27;undefined&#x27; &#x26;&#x26; data[Symbol.iterator] &#x26;&#x26; isFunction(data.values)) {
+    if (typeof Symbol !== 'undefined' &amp;&amp; data[Symbol.iterator] &amp;&amp; isFunction(data.values)) {
       iterator = data.values();
 
       do {
@@ -9111,7 +9104,7 @@ greater than `value`,
   try {
     return instanceStrict(data, prototype) ||
       data.constructor.name === prototype.name ||
-      Object.prototype.toString.call(data) === &#x27;[object &#x27; + prototype.name + &#x27;]&#x27;;
+      Object.prototype.toString.call(data) === '[object ' + prototype.name + ']';
   } catch (error) {
     return false;
   }
@@ -9179,7 +9172,7 @@ if `thing` is an instance of `prototype`,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function integer(data) {
-  return number(data) &#x26;&#x26; data % 1 === 0;
+  return number(data) &amp;&amp; data % 1 === 0;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 `false` otherwise.
@@ -9210,12 +9203,12 @@ if `thing` is zero,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function iterable(data) {
-  if (typeof Symbol === &#x27;undefined&#x27;) {
+  if (typeof Symbol === 'undefined') {
     // Fall back to `arrayLike` predicate in pre-ES6 environments.
     return arrayLike(data);
   }
 
-  return assigned(data) &#x26;&#x26; isFunction(data[Symbol.iterator]);
+  return assigned(data) &amp;&amp; isFunction(data[Symbol.iterator]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 `false` otherwise.
@@ -9245,7 +9238,7 @@ to `arrayLike` behaviour.
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function less(lhs, rhs) {
-  return number(lhs) &#x26;&#x26; lhs &#x3c; rhs;
+  return number(lhs) &amp;&amp; lhs &lt; rhs;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 `false` otherwise.
@@ -9276,7 +9269,7 @@ less than or equal to `value`,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function lessOrEqual(lhs, rhs) {
-  return number(lhs) &#x26;&#x26; lhs &#x3c;= rhs;
+  return number(lhs) &amp;&amp; lhs &lt;= rhs;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 `false` otherwise.
@@ -9315,7 +9308,7 @@ between than `a` and `b`,
         return false;
       }
 
-      if (object(data[name]) &#x26;&#x26; like(data[name], archetype[name]) === false) {
+      if (object(data[name]) &amp;&amp; like(data[name], archetype[name]) === false) {
         return false;
       }
     }
@@ -9390,7 +9383,7 @@ instead of an object
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function match(data, regex) {
-  return string(data) &#x26;&#x26; !! data.match(regex);
+  return string(data) &amp;&amp; !! data.match(regex);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
@@ -9683,8 +9676,8 @@ check.<span class="apidocCodeKeywordSpan">maybe.even</span>(null);
 ```
 
 ```javascript
-check.assert.like({ foo: &#x27;bar&#x27; }, { baz: &#x27;qux&#x27; });
-// Throws `new TypeError(&#x27;Invalid type&#x27;)`
+check.assert.like({ foo: 'bar' }, { baz: 'qux' });
+// Throws `new TypeError('Invalid type')`
 ```
 ...</pre></li>
     </ul>
@@ -9955,18 +9948,18 @@ check.assert.like({ foo: &#x27;bar&#x27; }, { baz: &#x27;qux&#x27; });
     <li>example usage<pre class="apidocCodePre">...
 
 ```javascript
-check.assert.not.like({ foo: &#x27;bar&#x27; }, { baz: &#x27;qux&#x27; });
-// Doesn&#x27;t throw
+check.assert.not.like({ foo: 'bar' }, { baz: 'qux' });
+// Doesn't throw
 ```
 
 ```javascript
-check.assert.<span class="apidocCodeKeywordSpan">maybe.like</span>(undefined, { foo: &#x27;bar&#x27; });
-// Doesn&#x27;t throw
+check.assert.<span class="apidocCodeKeywordSpan">maybe.like</span>(undefined, { foo: 'bar' });
+// Doesn't throw
 ```
 
 ```javascript
-check.assert(myFunction(), &#x27;Something went wrong&#x27;, CustomError);
-// Throws `new CustomError(&#x27;Something went wrong&#x27;)` if myFunction returns `false`
+check.assert(myFunction(), 'Something went wrong', CustomError);
+// Throws `new CustomError('Something went wrong')` if myFunction returns `false`
 ```
 ...</pre></li>
     </ul>
@@ -10259,7 +10252,7 @@ Returns `true`
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function nonEmptyArray(data) {
-  return array(data) &#x26;&#x26; data.length &#x3e; 0;
+  return array(data) &amp;&amp; data.length &gt; 0;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 `false` otherwise.
@@ -10290,7 +10283,7 @@ if `thing` has a numeric length property,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function nonEmptyObject(data) {
-  return object(data) &#x26;&#x26; Object.keys(data).length &#x3e; 0;
+  return object(data) &amp;&amp; Object.keys(data).length &gt; 0;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 `false` otherwise.
@@ -10321,7 +10314,7 @@ if `thing` is an instance of `prototype`,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function nonEmptyString(data) {
-  return string(data) &#x26;&#x26; data !== &#x27;&#x27;;
+  return string(data) &amp;&amp; data !== '';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 `false` otherwise.
@@ -10778,18 +10771,18 @@ check.maybe.even(null);
     <li>example usage<pre class="apidocCodePre">...
 
 ```javascript
-check.assert.like({ foo: &#x27;bar&#x27; }, { baz: &#x27;qux&#x27; });
-// Throws `new TypeError(&#x27;Invalid type&#x27;)`
+check.assert.like({ foo: 'bar' }, { baz: 'qux' });
+// Throws `new TypeError('Invalid type')`
 ```
 
 ```javascript
-check.assert.<span class="apidocCodeKeywordSpan">not.like</span>({ foo: &#x27;bar&#x27; }, { baz: &#x27;qux&#x27; });
-// Doesn&#x27;t throw
+check.assert.<span class="apidocCodeKeywordSpan">not.like</span>({ foo: 'bar' }, { baz: 'qux' });
+// Doesn't throw
 ```
 
 ```javascript
-check.assert.maybe.like(undefined, { foo: &#x27;bar&#x27; });
-// Doesn&#x27;t throw
+check.assert.maybe.like(undefined, { foo: 'bar' });
+// Doesn't throw
 ```
 ...</pre></li>
     </ul>
@@ -11030,9 +11023,9 @@ if `thing` is `undefined`,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function number(data) {
-  return typeof data === &#x27;number&#x27; &#x26;&#x26;
-    isNaN(data) === false &#x26;&#x26;
-    data !== Number.POSITIVE_INFINITY &#x26;&#x26;
+  return typeof data === 'number' &amp;&amp;
+    isNaN(data) === false &amp;&amp;
+    data !== Number.POSITIVE_INFINITY &amp;&amp;
     data !== Number.NEGATIVE_INFINITY;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -11064,7 +11057,7 @@ Note that
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function object(data) {
-  return Object.prototype.toString.call(data) === &#x27;[object Object]&#x27;;
+  return Object.prototype.toString.call(data) === '[object Object]';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 * `check.boolean(thing)`:
@@ -11095,7 +11088,7 @@ if `thing` is an empty object,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function odd(data) {
-  return integer(data) &#x26;&#x26; !even(data);
+  return integer(data) &amp;&amp; !even(data);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
@@ -11133,7 +11126,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">positive</span>(thing)`:
@@ -11157,7 +11150,7 @@ if `thing` is a number
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function string(data) {
-  return typeof data === &#x27;string&#x27;;
+  return typeof data === 'string';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 Returns `true`
@@ -11460,7 +11453,7 @@ if `thing` is an empty array,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -11474,7 +11467,7 @@ if `thing` is an empty array,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -11520,7 +11513,7 @@ if `thing` is an empty array,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -11534,7 +11527,7 @@ if `thing` is an empty array,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -11580,7 +11573,7 @@ if `thing` implements the iterable protocol,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -11594,7 +11587,7 @@ if `thing` implements the iterable protocol,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -11640,7 +11633,7 @@ Returns `true`
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -11654,7 +11647,7 @@ Returns `true`
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -11681,7 +11674,7 @@ between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -11700,7 +11693,7 @@ which is greater.
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -11714,7 +11707,7 @@ which is greater.
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -11760,7 +11753,7 @@ which is greater.
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -11774,7 +11767,7 @@ which is greater.
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -11820,7 +11813,7 @@ Returns `true`
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -11834,7 +11827,7 @@ Returns `true`
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -11880,7 +11873,7 @@ Returns `true`
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -11894,7 +11887,7 @@ Returns `true`
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -11940,7 +11933,7 @@ if `thing` is a non-empty array,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -11954,7 +11947,7 @@ if `thing` is a non-empty array,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -12000,7 +11993,7 @@ if `thing` is a non-empty object,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -12014,7 +12007,7 @@ if `thing` is a non-empty object,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -12060,7 +12053,7 @@ if `thing` is a non-empty string,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -12074,7 +12067,7 @@ if `thing` is a non-empty string,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -12120,7 +12113,7 @@ if `thing` is `null`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -12134,7 +12127,7 @@ if `thing` is `null`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -12180,7 +12173,7 @@ if `thing` is `null`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -12194,7 +12187,7 @@ if `thing` is `null`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -12240,7 +12233,7 @@ if `thing` is `null`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -12254,7 +12247,7 @@ if `thing` is `null`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -12300,7 +12293,7 @@ greater than or equal to `value`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -12314,7 +12307,7 @@ greater than or equal to `value`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -12360,7 +12353,7 @@ less than `value`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -12374,7 +12367,7 @@ less than `value`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -12419,7 +12412,7 @@ less than `value`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -12433,7 +12426,7 @@ less than `value`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -12451,7 +12444,7 @@ between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">inRange</span>(thing, a, b)`:
@@ -12460,7 +12453,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -12479,7 +12472,7 @@ which is greater.
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -12493,7 +12486,7 @@ which is greater.
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -12539,7 +12532,7 @@ which is greater.
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -12553,7 +12546,7 @@ which is greater.
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -12599,7 +12592,7 @@ greater than `value`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -12613,7 +12606,7 @@ greater than `value`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -12658,7 +12651,7 @@ if the `instanceof` test fails.
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -12672,7 +12665,7 @@ if the `instanceof` test fails.
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -12718,7 +12711,7 @@ if `thing` is an instance of `prototype`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -12732,7 +12725,7 @@ if `thing` is an instance of `prototype`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -12778,7 +12771,7 @@ if `thing` is zero,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -12792,7 +12785,7 @@ if `thing` is zero,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -12837,7 +12830,7 @@ to `arrayLike` behaviour.
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -12851,7 +12844,7 @@ to `arrayLike` behaviour.
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -12897,7 +12890,7 @@ less than or equal to `value`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -12911,7 +12904,7 @@ less than or equal to `value`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -12957,7 +12950,7 @@ between than `a` and `b`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -12971,7 +12964,7 @@ between than `a` and `b`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -13016,7 +13009,7 @@ between than `a` and `b`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -13030,7 +13023,7 @@ between than `a` and `b`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -13075,7 +13068,7 @@ between than `a` and `b`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -13089,7 +13082,7 @@ between than `a` and `b`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -13135,7 +13128,7 @@ Returns `true`
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -13149,7 +13142,7 @@ Returns `true`
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -13195,7 +13188,7 @@ if `thing` has a numeric length property,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -13209,7 +13202,7 @@ if `thing` has a numeric length property,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -13255,7 +13248,7 @@ if `thing` is an instance of `prototype`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -13269,7 +13262,7 @@ if `thing` is an instance of `prototype`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -13315,7 +13308,7 @@ if `thing` is a string
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -13329,7 +13322,7 @@ if `thing` is a string
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -13375,7 +13368,7 @@ if `thing` is `undefined`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -13389,7 +13382,7 @@ if `thing` is `undefined`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -13435,7 +13428,7 @@ Note that
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -13449,7 +13442,7 @@ Note that
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -13495,7 +13488,7 @@ if `thing` is an empty object,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -13509,7 +13502,7 @@ if `thing` is an empty object,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -13555,7 +13548,7 @@ if `thing` is an even number,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -13569,7 +13562,7 @@ if `thing` is an even number,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -13587,7 +13580,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">positive</span>(thing)`:
@@ -13615,7 +13608,7 @@ if `thing` is a number
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -13629,7 +13622,7 @@ if `thing` is a number
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -13675,7 +13668,7 @@ if `thing` is the empty string,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -13689,7 +13682,7 @@ if `thing` is the empty string,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -13735,7 +13728,7 @@ if `thing` is not
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -13749,7 +13742,7 @@ if `thing` is not
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -13796,7 +13789,7 @@ if `thing` is positive or negative infinity,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function arrayLike(data) {
-  return assigned(data) &#x26;&#x26; number(data.length);
+  return assigned(data) &amp;&amp; number(data.length);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 `false` otherwise.
@@ -13838,7 +13831,7 @@ if `thing` implements the iterable protocol,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -13852,7 +13845,7 @@ if `thing` implements the iterable protocol,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -13898,7 +13891,7 @@ if `thing` is an empty array,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -13912,7 +13905,7 @@ if `thing` is an empty array,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -13958,7 +13951,7 @@ if `thing` implements the iterable protocol,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -13972,7 +13965,7 @@ if `thing` implements the iterable protocol,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -14018,7 +14011,7 @@ Returns `true`
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -14032,7 +14025,7 @@ Returns `true`
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -14059,7 +14052,7 @@ between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -14078,7 +14071,7 @@ which is greater.
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -14092,7 +14085,7 @@ which is greater.
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -14138,7 +14131,7 @@ which is greater.
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -14152,7 +14145,7 @@ which is greater.
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -14198,7 +14191,7 @@ Returns `true`
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -14212,7 +14205,7 @@ Returns `true`
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -14258,7 +14251,7 @@ Returns `true`
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -14272,7 +14265,7 @@ Returns `true`
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -14318,7 +14311,7 @@ if `thing` is a non-empty array,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -14332,7 +14325,7 @@ if `thing` is a non-empty array,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -14378,7 +14371,7 @@ if `thing` is a non-empty object,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -14392,7 +14385,7 @@ if `thing` is a non-empty object,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -14438,7 +14431,7 @@ if `thing` is a non-empty string,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -14452,7 +14445,7 @@ if `thing` is a non-empty string,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -14498,7 +14491,7 @@ if `thing` is `null`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -14512,7 +14505,7 @@ if `thing` is `null`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -14558,7 +14551,7 @@ if `thing` is `null`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -14572,7 +14565,7 @@ if `thing` is `null`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -14618,7 +14611,7 @@ if `thing` is `null`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -14632,7 +14625,7 @@ if `thing` is `null`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -14678,7 +14671,7 @@ greater than or equal to `value`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -14692,7 +14685,7 @@ greater than or equal to `value`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -14738,7 +14731,7 @@ less than `value`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -14752,7 +14745,7 @@ less than `value`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -14797,7 +14790,7 @@ less than `value`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -14811,7 +14804,7 @@ less than `value`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -14829,7 +14822,7 @@ between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">inRange</span>(thing, a, b)`:
@@ -14838,7 +14831,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -14857,7 +14850,7 @@ which is greater.
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -14871,7 +14864,7 @@ which is greater.
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -14917,7 +14910,7 @@ which is greater.
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -14931,7 +14924,7 @@ which is greater.
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -14977,7 +14970,7 @@ greater than `value`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -14991,7 +14984,7 @@ greater than `value`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -15036,7 +15029,7 @@ if the `instanceof` test fails.
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -15050,7 +15043,7 @@ if the `instanceof` test fails.
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -15096,7 +15089,7 @@ if `thing` is an instance of `prototype`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -15110,7 +15103,7 @@ if `thing` is an instance of `prototype`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -15156,7 +15149,7 @@ if `thing` is zero,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -15170,7 +15163,7 @@ if `thing` is zero,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -15215,7 +15208,7 @@ to `arrayLike` behaviour.
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -15229,7 +15222,7 @@ to `arrayLike` behaviour.
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -15275,7 +15268,7 @@ less than or equal to `value`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -15289,7 +15282,7 @@ less than or equal to `value`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -15335,7 +15328,7 @@ between than `a` and `b`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -15349,7 +15342,7 @@ between than `a` and `b`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -15394,7 +15387,7 @@ between than `a` and `b`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -15408,7 +15401,7 @@ between than `a` and `b`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -15453,7 +15446,7 @@ between than `a` and `b`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -15467,7 +15460,7 @@ between than `a` and `b`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -15513,7 +15506,7 @@ Returns `true`
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -15527,7 +15520,7 @@ Returns `true`
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -15573,7 +15566,7 @@ if `thing` has a numeric length property,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -15587,7 +15580,7 @@ if `thing` has a numeric length property,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -15633,7 +15626,7 @@ if `thing` is an instance of `prototype`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -15647,7 +15640,7 @@ if `thing` is an instance of `prototype`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -15693,7 +15686,7 @@ if `thing` is a string
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -15707,7 +15700,7 @@ if `thing` is a string
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -15753,7 +15746,7 @@ if `thing` is `undefined`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -15767,7 +15760,7 @@ if `thing` is `undefined`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -15813,7 +15806,7 @@ Note that
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -15827,7 +15820,7 @@ Note that
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -15873,7 +15866,7 @@ if `thing` is an empty object,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -15887,7 +15880,7 @@ if `thing` is an empty object,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -15933,7 +15926,7 @@ if `thing` is an even number,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -15947,7 +15940,7 @@ if `thing` is an even number,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -15965,7 +15958,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">positive</span>(thing)`:
@@ -15993,7 +15986,7 @@ if `thing` is a number
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -16007,7 +16000,7 @@ if `thing` is a number
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -16053,7 +16046,7 @@ if `thing` is the empty string,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -16067,7 +16060,7 @@ if `thing` is the empty string,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -16113,7 +16106,7 @@ if `thing` is not
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -16127,7 +16120,7 @@ if `thing` is not
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -16175,7 +16168,7 @@ if `thing` is positive or negative infinity,
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function assertImpl(value, message, ErrorType) {
   if (value === false) {
-    throw new (ErrorType || Error)(message || &#x27;Assertion failed&#x27;);
+    throw new (ErrorType || Error)(message || 'Assertion failed');
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -16184,7 +16177,7 @@ except it operates on iterables.
 * `check.object.of.xxx(thing)`:
 The `object.of` modifier
 is synonymous with `array.of`,
-except it operates on an object&#x27;s properties.
+except it operates on an object's properties.
 
 * `check.<span class="apidocCodeKeywordSpan">assert</span>(value, message, ErrorType)`:
 Throws a `TypeError`
@@ -16316,7 +16309,7 @@ between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -16709,7 +16702,7 @@ between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">inRange</span>(thing, a, b)`:
@@ -16718,7 +16711,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -17294,7 +17287,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">positive</span>(thing)`:
@@ -17548,7 +17541,7 @@ between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -18006,7 +17999,7 @@ between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">inRange</span>(thing, a, b)`:
@@ -18015,7 +18008,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -18502,7 +18495,7 @@ between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -18895,7 +18888,7 @@ between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">inRange</span>(thing, a, b)`:
@@ -18904,7 +18897,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -19480,7 +19473,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">positive</span>(thing)`:
@@ -19855,7 +19848,7 @@ between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -20248,7 +20241,7 @@ between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">inRange</span>(thing, a, b)`:
@@ -20257,7 +20250,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -20833,7 +20826,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">positive</span>(thing)`:
@@ -21108,7 +21101,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">positive</span>(thing)`:
@@ -21245,7 +21238,7 @@ if `thing` is positive or negative infinity,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function assigned(data) {
-  return ! isUndefined(data) &#x26;&#x26; ! isNull(data);
+  return ! isUndefined(data) &amp;&amp; ! isNull(data);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 `false` otherwise.
@@ -21281,11 +21274,11 @@ Returns `true`
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function between(data, x, y) {
-  if (x &#x3c; y) {
-    return greater(data, x) &#x26;&#x26; less(data, y);
+  if (x &lt; y) {
+    return greater(data, x) &amp;&amp; less(data, y);
   }
 
-  return less(data, x) &#x26;&#x26; greater(data, y);
+  return less(data, x) &amp;&amp; greater(data, y);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 `false` otherwise.
@@ -21301,7 +21294,7 @@ between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -21357,7 +21350,7 @@ which is greater.
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function contains(data, substring) {
-  return string(data) &#x26;&#x26; data.indexOf(substring) !== -1;
+  return string(data) &amp;&amp; data.indexOf(substring) !== -1;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 `false` otherwise.
@@ -21394,7 +21387,7 @@ Returns `true`
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function date(data) {
   try {
-    return instance(data, Date) &#x26;&#x26; integer(data.getTime());
+    return instance(data, Date) &amp;&amp; integer(data.getTime());
   } catch (error) {
     return false;
   }
@@ -21433,7 +21426,7 @@ Returns `true`
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function emptyArray(data) {
-  return array(data) &#x26;&#x26; data.length === 0;
+  return array(data) &amp;&amp; data.length === 0;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 #### Array predicates
@@ -21469,7 +21462,7 @@ if `thing` is a non-empty array,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function emptyObject(data) {
-  return object(data) &#x26;&#x26; Object.keys(data).length === 0;
+  return object(data) &amp;&amp; Object.keys(data).length === 0;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 #### Object predicates
@@ -21505,7 +21498,7 @@ if `thing` is a non-empty object,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function emptyString(data) {
-  return data === &#x27;&#x27;;
+  return data === '';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 #### String predicates
@@ -21577,7 +21570,7 @@ if `thing` is `null`,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function even(data) {
-  return number(data) &#x26;&#x26; data % 2 === 0;
+  return number(data) &amp;&amp; data % 2 === 0;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   `false` otherwise.
@@ -21613,7 +21606,7 @@ if `thing` is `null`,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function isFunction(data) {
-  return typeof data === &#x27;function&#x27;;
+  return typeof data === 'function';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 * `check.date(thing)`:
@@ -21649,7 +21642,7 @@ if `thing` is `null`,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function greater(lhs, rhs) {
-  return number(lhs) &#x26;&#x26; lhs &#x3e; rhs;
+  return number(lhs) &amp;&amp; lhs &gt; rhs;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 `false` otherwise.
@@ -21685,7 +21678,7 @@ greater than or equal to `value`,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function greaterOrEqual(lhs, rhs) {
-  return number(lhs) &#x26;&#x26; lhs &#x3e;= rhs;
+  return number(lhs) &amp;&amp; lhs &gt;= rhs;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 `false` otherwise.
@@ -21721,7 +21714,7 @@ less than `value`,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function hasLength(data, length) {
-  return assigned(data) &#x26;&#x26; data.length === length;
+  return assigned(data) &amp;&amp; data.length === length;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
@@ -21756,18 +21749,18 @@ less than `value`,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function inRange(data, x, y) {
-  if (x &#x3c; y) {
-    return greaterOrEqual(data, x) &#x26;&#x26; lessOrEqual(data, y);
+  if (x &lt; y) {
+    return greaterOrEqual(data, x) &amp;&amp; lessOrEqual(data, y);
   }
 
-  return lessOrEqual(data, x) &#x26;&#x26; greaterOrEqual(data, y);
+  return lessOrEqual(data, x) &amp;&amp; greaterOrEqual(data, y);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">inRange</span>(thing, a, b)`:
@@ -21776,7 +21769,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -21803,7 +21796,7 @@ which is greater.
   }
 
   try {
-    if (typeof Symbol !== &#x27;undefined&#x27; &#x26;&#x26; data[Symbol.iterator] &#x26;&#x26; isFunction(data.values)) {
+    if (typeof Symbol !== 'undefined' &amp;&amp; data[Symbol.iterator] &amp;&amp; isFunction(data.values)) {
       iterator = data.values();
 
       do {
@@ -21901,7 +21894,7 @@ greater than `value`,
   try {
     return instanceStrict(data, prototype) ||
       data.constructor.name === prototype.name ||
-      Object.prototype.toString.call(data) === &#x27;[object &#x27; + prototype.name + &#x27;]&#x27;;
+      Object.prototype.toString.call(data) === '[object ' + prototype.name + ']';
   } catch (error) {
     return false;
   }
@@ -21979,7 +21972,7 @@ if `thing` is an instance of `prototype`,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function integer(data) {
-  return number(data) &#x26;&#x26; data % 1 === 0;
+  return number(data) &amp;&amp; data % 1 === 0;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 `false` otherwise.
@@ -22015,12 +22008,12 @@ if `thing` is zero,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function iterable(data) {
-  if (typeof Symbol === &#x27;undefined&#x27;) {
+  if (typeof Symbol === 'undefined') {
     // Fall back to `arrayLike` predicate in pre-ES6 environments.
     return arrayLike(data);
   }
 
-  return assigned(data) &#x26;&#x26; isFunction(data[Symbol.iterator]);
+  return assigned(data) &amp;&amp; isFunction(data[Symbol.iterator]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 `false` otherwise.
@@ -22061,7 +22054,7 @@ to `arrayLike` behaviour.
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -22075,7 +22068,7 @@ to `arrayLike` behaviour.
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -22121,7 +22114,7 @@ if `thing` is an empty array,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -22135,7 +22128,7 @@ if `thing` is an empty array,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -22181,7 +22174,7 @@ if `thing` implements the iterable protocol,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -22195,7 +22188,7 @@ if `thing` implements the iterable protocol,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -22241,7 +22234,7 @@ Returns `true`
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -22255,7 +22248,7 @@ Returns `true`
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -22282,7 +22275,7 @@ between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -22301,7 +22294,7 @@ which is greater.
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -22315,7 +22308,7 @@ which is greater.
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -22361,7 +22354,7 @@ which is greater.
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -22375,7 +22368,7 @@ which is greater.
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -22421,7 +22414,7 @@ Returns `true`
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -22435,7 +22428,7 @@ Returns `true`
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -22481,7 +22474,7 @@ Returns `true`
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -22495,7 +22488,7 @@ Returns `true`
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -22541,7 +22534,7 @@ if `thing` is a non-empty array,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -22555,7 +22548,7 @@ if `thing` is a non-empty array,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -22601,7 +22594,7 @@ if `thing` is a non-empty object,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -22615,7 +22608,7 @@ if `thing` is a non-empty object,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -22661,7 +22654,7 @@ if `thing` is a non-empty string,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -22675,7 +22668,7 @@ if `thing` is a non-empty string,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -22721,7 +22714,7 @@ if `thing` is `null`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -22735,7 +22728,7 @@ if `thing` is `null`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -22781,7 +22774,7 @@ if `thing` is `null`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -22795,7 +22788,7 @@ if `thing` is `null`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -22841,7 +22834,7 @@ if `thing` is `null`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -22855,7 +22848,7 @@ if `thing` is `null`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -22901,7 +22894,7 @@ greater than or equal to `value`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -22915,7 +22908,7 @@ greater than or equal to `value`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -22961,7 +22954,7 @@ less than `value`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -22975,7 +22968,7 @@ less than `value`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -23020,7 +23013,7 @@ less than `value`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -23034,7 +23027,7 @@ less than `value`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -23052,7 +23045,7 @@ between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">inRange</span>(thing, a, b)`:
@@ -23061,7 +23054,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -23080,7 +23073,7 @@ which is greater.
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -23094,7 +23087,7 @@ which is greater.
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -23140,7 +23133,7 @@ which is greater.
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -23154,7 +23147,7 @@ which is greater.
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -23200,7 +23193,7 @@ greater than `value`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -23214,7 +23207,7 @@ greater than `value`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -23259,7 +23252,7 @@ if the `instanceof` test fails.
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -23273,7 +23266,7 @@ if the `instanceof` test fails.
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -23319,7 +23312,7 @@ if `thing` is an instance of `prototype`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -23333,7 +23326,7 @@ if `thing` is an instance of `prototype`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -23379,7 +23372,7 @@ if `thing` is zero,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -23393,7 +23386,7 @@ if `thing` is zero,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -23438,7 +23431,7 @@ to `arrayLike` behaviour.
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -23452,7 +23445,7 @@ to `arrayLike` behaviour.
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -23498,7 +23491,7 @@ less than or equal to `value`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -23512,7 +23505,7 @@ less than or equal to `value`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -23558,7 +23551,7 @@ between than `a` and `b`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -23572,7 +23565,7 @@ between than `a` and `b`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -23617,7 +23610,7 @@ between than `a` and `b`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -23631,7 +23624,7 @@ between than `a` and `b`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -23676,7 +23669,7 @@ between than `a` and `b`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -23690,7 +23683,7 @@ between than `a` and `b`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -23736,7 +23729,7 @@ Returns `true`
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -23750,7 +23743,7 @@ Returns `true`
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -23796,7 +23789,7 @@ if `thing` has a numeric length property,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -23810,7 +23803,7 @@ if `thing` has a numeric length property,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -23856,7 +23849,7 @@ if `thing` is an instance of `prototype`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -23870,7 +23863,7 @@ if `thing` is an instance of `prototype`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -23916,7 +23909,7 @@ if `thing` is a string
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -23930,7 +23923,7 @@ if `thing` is a string
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -23976,7 +23969,7 @@ if `thing` is `undefined`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -23990,7 +23983,7 @@ if `thing` is `undefined`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -24036,7 +24029,7 @@ Note that
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -24050,7 +24043,7 @@ Note that
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -24096,7 +24089,7 @@ if `thing` is an empty object,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -24110,7 +24103,7 @@ if `thing` is an empty object,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -24156,7 +24149,7 @@ if `thing` is an even number,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -24170,7 +24163,7 @@ if `thing` is an even number,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -24188,7 +24181,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">positive</span>(thing)`:
@@ -24216,7 +24209,7 @@ if `thing` is a number
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -24230,7 +24223,7 @@ if `thing` is a number
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -24276,7 +24269,7 @@ if `thing` is the empty string,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -24290,7 +24283,7 @@ if `thing` is the empty string,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -24336,7 +24329,7 @@ if `thing` is not
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -24350,7 +24343,7 @@ if `thing` is not
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -24397,7 +24390,7 @@ if `thing` is positive or negative infinity,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function less(lhs, rhs) {
-  return number(lhs) &#x26;&#x26; lhs &#x3c; rhs;
+  return number(lhs) &amp;&amp; lhs &lt; rhs;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 `false` otherwise.
@@ -24433,7 +24426,7 @@ less than or equal to `value`,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function lessOrEqual(lhs, rhs) {
-  return number(lhs) &#x26;&#x26; lhs &#x3c;= rhs;
+  return number(lhs) &amp;&amp; lhs &lt;= rhs;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 `false` otherwise.
@@ -24477,7 +24470,7 @@ between than `a` and `b`,
         return false;
       }
 
-      if (object(data[name]) &#x26;&#x26; like(data[name], archetype[name]) === false) {
+      if (object(data[name]) &amp;&amp; like(data[name], archetype[name]) === false) {
         return false;
       }
     }
@@ -24562,7 +24555,7 @@ instead of an object
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function match(data, regex) {
-  return string(data) &#x26;&#x26; !! data.match(regex);
+  return string(data) &amp;&amp; !! data.match(regex);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
@@ -24757,7 +24750,7 @@ between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -25202,7 +25195,7 @@ between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">inRange</span>(thing, a, b)`:
@@ -25211,7 +25204,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -25863,7 +25856,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">positive</span>(thing)`:
@@ -26155,7 +26148,7 @@ between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -26717,7 +26710,7 @@ between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">inRange</span>(thing, a, b)`:
@@ -26726,7 +26719,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -27553,7 +27546,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">positive</span>(thing)`:
@@ -27752,7 +27745,7 @@ Returns `true`
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function nonEmptyArray(data) {
-  return array(data) &#x26;&#x26; data.length &#x3e; 0;
+  return array(data) &amp;&amp; data.length &gt; 0;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 `false` otherwise.
@@ -27788,7 +27781,7 @@ if `thing` has a numeric length property,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function nonEmptyObject(data) {
-  return object(data) &#x26;&#x26; Object.keys(data).length &#x3e; 0;
+  return object(data) &amp;&amp; Object.keys(data).length &gt; 0;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 `false` otherwise.
@@ -27824,7 +27817,7 @@ if `thing` is an instance of `prototype`,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function nonEmptyString(data) {
-  return string(data) &#x26;&#x26; data !== &#x27;&#x27;;
+  return string(data) &amp;&amp; data !== '';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 `false` otherwise.
@@ -27999,7 +27992,7 @@ between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -28392,7 +28385,7 @@ between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">inRange</span>(thing, a, b)`:
@@ -28401,7 +28394,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -28977,7 +28970,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">positive</span>(thing)`:
@@ -29233,7 +29226,7 @@ between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -29717,7 +29710,7 @@ between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">inRange</span>(thing, a, b)`:
@@ -29726,7 +29719,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -30439,7 +30432,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">positive</span>(thing)`:
@@ -30620,9 +30613,9 @@ if `thing` is `undefined`,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function number(data) {
-  return typeof data === &#x27;number&#x27; &#x26;&#x26;
-    isNaN(data) === false &#x26;&#x26;
-    data !== Number.POSITIVE_INFINITY &#x26;&#x26;
+  return typeof data === 'number' &amp;&amp;
+    isNaN(data) === false &amp;&amp;
+    data !== Number.POSITIVE_INFINITY &amp;&amp;
     data !== Number.NEGATIVE_INFINITY;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -30659,7 +30652,7 @@ Note that
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function object(data) {
-  return Object.prototype.toString.call(data) === &#x27;[object Object]&#x27;;
+  return Object.prototype.toString.call(data) === '[object Object]';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 * `check.boolean(thing)`:
@@ -30701,7 +30694,7 @@ if `thing` is an empty object,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -30715,7 +30708,7 @@ if `thing` is an empty object,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -30761,7 +30754,7 @@ if `thing` is an empty array,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -30775,7 +30768,7 @@ if `thing` is an empty array,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -30821,7 +30814,7 @@ if `thing` implements the iterable protocol,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -30835,7 +30828,7 @@ if `thing` implements the iterable protocol,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -30881,7 +30874,7 @@ Returns `true`
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -30895,7 +30888,7 @@ Returns `true`
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -30922,7 +30915,7 @@ between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -30941,7 +30934,7 @@ which is greater.
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -30955,7 +30948,7 @@ which is greater.
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -31001,7 +30994,7 @@ which is greater.
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -31015,7 +31008,7 @@ which is greater.
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -31061,7 +31054,7 @@ Returns `true`
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -31075,7 +31068,7 @@ Returns `true`
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -31121,7 +31114,7 @@ Returns `true`
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -31135,7 +31128,7 @@ Returns `true`
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -31181,7 +31174,7 @@ if `thing` is a non-empty array,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -31195,7 +31188,7 @@ if `thing` is a non-empty array,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -31241,7 +31234,7 @@ if `thing` is a non-empty object,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -31255,7 +31248,7 @@ if `thing` is a non-empty object,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -31301,7 +31294,7 @@ if `thing` is a non-empty string,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -31315,7 +31308,7 @@ if `thing` is a non-empty string,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -31361,7 +31354,7 @@ if `thing` is `null`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -31375,7 +31368,7 @@ if `thing` is `null`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -31421,7 +31414,7 @@ if `thing` is `null`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -31435,7 +31428,7 @@ if `thing` is `null`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -31481,7 +31474,7 @@ if `thing` is `null`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -31495,7 +31488,7 @@ if `thing` is `null`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -31541,7 +31534,7 @@ greater than or equal to `value`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -31555,7 +31548,7 @@ greater than or equal to `value`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -31601,7 +31594,7 @@ less than `value`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -31615,7 +31608,7 @@ less than `value`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -31660,7 +31653,7 @@ less than `value`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -31674,7 +31667,7 @@ less than `value`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -31692,7 +31685,7 @@ between than `a` and `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">inRange</span>(thing, a, b)`:
@@ -31701,7 +31694,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 ...</pre></li>
     </ul>
@@ -31720,7 +31713,7 @@ which is greater.
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -31734,7 +31727,7 @@ which is greater.
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -31780,7 +31773,7 @@ which is greater.
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -31794,7 +31787,7 @@ which is greater.
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -31840,7 +31833,7 @@ greater than `value`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -31854,7 +31847,7 @@ greater than `value`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -31899,7 +31892,7 @@ if the `instanceof` test fails.
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -31913,7 +31906,7 @@ if the `instanceof` test fails.
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -31959,7 +31952,7 @@ if `thing` is an instance of `prototype`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -31973,7 +31966,7 @@ if `thing` is an instance of `prototype`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -32019,7 +32012,7 @@ if `thing` is zero,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -32033,7 +32026,7 @@ if `thing` is zero,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -32078,7 +32071,7 @@ to `arrayLike` behaviour.
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -32092,7 +32085,7 @@ to `arrayLike` behaviour.
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -32138,7 +32131,7 @@ less than or equal to `value`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -32152,7 +32145,7 @@ less than or equal to `value`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -32198,7 +32191,7 @@ between than `a` and `b`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -32212,7 +32205,7 @@ between than `a` and `b`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -32257,7 +32250,7 @@ between than `a` and `b`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -32271,7 +32264,7 @@ between than `a` and `b`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -32316,7 +32309,7 @@ between than `a` and `b`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -32330,7 +32323,7 @@ between than `a` and `b`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -32376,7 +32369,7 @@ Returns `true`
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -32390,7 +32383,7 @@ Returns `true`
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -32436,7 +32429,7 @@ if `thing` has a numeric length property,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -32450,7 +32443,7 @@ if `thing` has a numeric length property,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -32496,7 +32489,7 @@ if `thing` is an instance of `prototype`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -32510,7 +32503,7 @@ if `thing` is an instance of `prototype`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -32556,7 +32549,7 @@ if `thing` is a string
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -32570,7 +32563,7 @@ if `thing` is a string
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -32616,7 +32609,7 @@ if `thing` is `undefined`,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -32630,7 +32623,7 @@ if `thing` is `undefined`,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -32676,7 +32669,7 @@ Note that
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -32690,7 +32683,7 @@ Note that
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -32736,7 +32729,7 @@ if `thing` is an empty object,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -32750,7 +32743,7 @@ if `thing` is an empty object,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -32796,7 +32789,7 @@ if `thing` is an even number,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -32810,7 +32803,7 @@ if `thing` is an even number,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -32828,7 +32821,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">positive</span>(thing)`:
@@ -32856,7 +32849,7 @@ if `thing` is a number
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -32870,7 +32863,7 @@ if `thing` is a number
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -32916,7 +32909,7 @@ if `thing` is the empty string,
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -32930,7 +32923,7 @@ if `thing` is the empty string,
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -32976,7 +32969,7 @@ if `thing` is not
 
   collection = arguments[0];
 
-  if (target === &#x27;maybe&#x27; &#x26;&#x26; not.assigned(collection)) {
+  if (target === 'maybe' &amp;&amp; not.assigned(collection)) {
     return true;
   }
 
@@ -32990,7 +32983,7 @@ if `thing` is not
   try {
     collection.forEach(function (item) {
       if (
-        (target !== &#x27;maybe&#x27; || assigned(item)) &#x26;&#x26;
+        (target !== 'maybe' || assigned(item)) &amp;&amp;
         !predicate.apply(null, [ item ].concat(args))
       ) {
         // TODO: Replace with for...of when ES6 is required.
@@ -33037,7 +33030,7 @@ if `thing` is positive or negative infinity,
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function odd(data) {
-  return integer(data) &#x26;&#x26; !even(data);
+  return integer(data) &amp;&amp; !even(data);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
@@ -33080,7 +33073,7 @@ in the range `a` .. `b`,
 `false` otherwise.
 The arguments `a` and `b`
 may be in any order,
-it doesn&#x27;t matter
+it doesn't matter
 which is greater.
 
 * `check.<span class="apidocCodeKeywordSpan">positive</span>(thing)`:
@@ -33109,7 +33102,7 @@ if `thing` is a number
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function string(data) {
-  return typeof data === &#x27;string&#x27;;
+  return typeof data === 'string';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 Returns `true`
@@ -33211,3 +33204,4 @@ if `thing` is positive or negative infinity,
     ]
 </div>
 </div>
+</body></html>
