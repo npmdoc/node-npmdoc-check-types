@@ -1,6 +1,6 @@
 # npmdoc-check-types
 
-#### api documentation for  [check-types (v7.1.5)](https://github.com/philbooth/check-types.js)  [![npm package](https://img.shields.io/npm/v/npmdoc-check-types.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-check-types) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-check-types.svg)](https://travis-ci.org/npmdoc/node-npmdoc-check-types)
+#### basic api documentation for  [check-types (v7.1.5)](https://github.com/philbooth/check-types.js)  [![npm package](https://img.shields.io/npm/v/npmdoc-check-types.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-check-types) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-check-types.svg)](https://travis-ci.org/npmdoc/node-npmdoc-check-types)
 
 #### A little library for asserting types and values.
 
@@ -145,7 +145,8 @@
         "minify": "uglifyjs ./src/check-types.js --compress --mangle --output ./src/check-types.min.js",
         "test": "mocha --ui tdd --reporter spec --colors ./test/check-types.js"
     },
-    "version": "7.1.5"
+    "version": "7.1.5",
+    "bin": {}
 }
 ```
 
